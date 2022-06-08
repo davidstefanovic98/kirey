@@ -12,6 +12,11 @@ import org.springframework.data.jpa.domain.Specification;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+/**
+ * This class is implementation of BaseService interface.
+ * It is used to implement CRUD methods for generic entity to reduce boilerplate code.
+ * @param <T>
+ */
 @RequiredArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter(AccessLevel.PROTECTED)
 public class BaseServiceImpl<T> implements BaseService<T> {
