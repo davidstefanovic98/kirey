@@ -10,16 +10,14 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Column;
-import javax.persistence.EntityListeners;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @EntityListeners(AuditingEntityListener.class)
+@MappedSuperclass
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public abstract class Auditable implements Serializable {
 
@@ -32,7 +30,6 @@ public abstract class Auditable implements Serializable {
     @LastModifiedBy
     private String lastModifiedBy;
 
-    @Column(name = "record_status")
     @Enumerated(EnumType.ORDINAL)
     private RecordStatus recordStatus;
 }

@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -20,7 +21,7 @@ public class StudentController {
 
     @GetMapping
     public ResponseEntity<List<Student>> getAllStudents(@RequestParam(required = false) Specification<Student> specification,
-                                                    @RequestParam(required = false) Sort sort) {
+                                                        @RequestParam(required = false) Sort sort) {
         return ResponseEntity.ok(studentService.findAll(specification, sort));
     }
 
@@ -30,12 +31,12 @@ public class StudentController {
     }
 
     @PostMapping
-    public ResponseEntity<Student> saveStudent(Student student) {
+    public ResponseEntity<Student> saveStudent(@Valid @RequestBody Student student) {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(studentService.save(student));
     }
 
     @PutMapping
-    public ResponseEntity<Student> updateStudent(Student student) {
+    public ResponseEntity<Student> updateStudent(@Valid @RequestBody Student student) {
         return ResponseEntity.ok(studentService.update(student));
     }
 
@@ -45,9 +46,9 @@ public class StudentController {
     }
 
 
-    @GetMapping("/{city}/{age}")
-    public ResponseEntity<List<Student>> getAllStudentsByCityAndAge(@PathVariable String city,
-                                                                     @PathVariable Integer age) {
+    @GetMapping("/search-student")
+    public ResponseEntity<List<Student>> getAllStudentsByCityAndAge(@RequestParam String city,
+                                                                    @RequestParam Integer age) {
         return ResponseEntity.ok(studentService.findAllStudentsByCityAndAge(city, age));
     }
 }

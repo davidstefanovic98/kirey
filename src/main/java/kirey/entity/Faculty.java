@@ -27,7 +27,7 @@ public class Faculty extends Auditable {
     private String name;
     @Column(name="city")
     private String city;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     @JoinTable(name = "faculty_student", joinColumns = @JoinColumn(name = "faculty_fk"), inverseJoinColumns = @JoinColumn(name = "student_fk"))
     private List<Student> students;
 
@@ -41,6 +41,6 @@ public class Faculty extends Auditable {
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(facultyId);
     }
 }

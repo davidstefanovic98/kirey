@@ -13,9 +13,9 @@ public class FacultyServiceImpl extends BaseServiceImpl<Faculty> implements Facu
 
     private final FacultyRepository facultyRepository;
 
-    protected FacultyServiceImpl(FacultyRepository baseRepository) {
-        super(baseRepository);
-        this.facultyRepository = baseRepository;
+    protected FacultyServiceImpl(FacultyRepository facultyRepository) {
+        super(facultyRepository);
+        this.facultyRepository = facultyRepository;
     }
 
     @Override
