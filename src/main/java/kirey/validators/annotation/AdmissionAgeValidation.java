@@ -1,4 +1,4 @@
-package kirey.annotation;
+package kirey.validators.annotation;
 
 import kirey.validators.AdmissionAgeValidator;
 

@@ -1,6 +1,6 @@
 package kirey.validators;
 
-import kirey.annotation.AdmissionAgeValidation;
+import kirey.validators.annotation.AdmissionAgeValidation;
 import org.springframework.beans.BeanWrapperImpl;
 
 import javax.validation.ConstraintValidator;

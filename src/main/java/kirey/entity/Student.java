@@ -1,7 +1,7 @@
 package kirey.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import kirey.annotation.AdmissionAgeValidation;
+import kirey.validators.annotation.AdmissionAgeValidation;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
