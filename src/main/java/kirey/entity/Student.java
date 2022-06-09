@@ -41,7 +41,7 @@ public class Student extends Auditable {
     @Column(name="date_of_admission")
     private LocalDate dateOfAdmission;
     @JsonIgnore
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     @JoinTable(name = "faculty_student", joinColumns = @JoinColumn(name = "student_fk"), inverseJoinColumns = @JoinColumn(name = "faculty_fk"))
     private List<Faculty> faculties;
 

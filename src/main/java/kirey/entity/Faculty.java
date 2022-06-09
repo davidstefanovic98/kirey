@@ -27,7 +27,7 @@ public class Faculty extends Auditable {
     private String name;
     @Column(name="city")
     private String city;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "faculty_student", joinColumns = @JoinColumn(name = "faculty_fk"), inverseJoinColumns = @JoinColumn(name = "student_fk"))
     private List<Student> students;
 

@@ -27,6 +27,7 @@ public class AdmissionAgeValidator implements ConstraintValidator<AdmissionAgeVa
         if (dateOfBirth == null || dateOfAdmission == null) {
             return false;
         }
-        return dateOfBirth.isBefore(dateOfAdmission.minusYears(differenceInYears));
+        return dateOfBirth.isBefore(dateOfAdmission.minusYears(differenceInYears))
+                || dateOfBirth.isEqual(dateOfAdmission.minusYears(differenceInYears));
     }
 }
