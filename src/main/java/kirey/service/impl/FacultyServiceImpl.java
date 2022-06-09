@@ -22,7 +22,7 @@ public class FacultyServiceImpl extends BaseServiceImpl<Faculty> implements Facu
     public List<Faculty> findAllFacultiesByNameAndCityAndNumberOfStudents(String name, String city, Integer numberOfStudents) {
         return facultyRepository.findAllByNameAndCity(name, city)
                 .stream()
-                .filter(faculty -> faculty.getStudents().size() > numberOfStudents)
+                .filter(faculty -> faculty.getStudents().size() >= numberOfStudents)
                 .collect(Collectors.toList());
     }
 }
